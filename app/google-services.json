@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "82271850213",
+    "project_id": "unipi---storyteller",
+    "storage_bucket": "unipi---storyteller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82271850213:android:ac2848bbcb1ebb8e948e0c",
+        "android_client_info": {
+          "package_name": "com.example.unipi_storyteller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82271850213-k209op70g3lfjfl64gqgl0svho2hvejq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsnubWBTMvfg27usCJNnOoGYglkXdumVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82271850213-k209op70g3lfjfl64gqgl0svho2hvejq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
