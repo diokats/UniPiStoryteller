@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -29,85 +30,48 @@ public class MainActivity extends AppCompatActivity {
     ImageButton imageButton2;
     ImageButton imageButton3;
     ImageButton imageButton4;
-
-    // StorageReference storageReference;
+    ImageButton imageButton5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        String imageUrl = "https://firebasestorage.googleapis.com/v0/b/unipi---storyteller.appspot.com/o/ta-tria-gourounakia..jpg?alt=media&token=85b6ba69-66ac-42f6-8e27-ab9deb876478";
+        ImageButton imageButton = findViewById(R.id.imageButton);
+        Glide.with(this/* context */)
+                .load(imageUrl)
+                .into(imageButton);
 
-        List<StorageReference> imageRefs = new ArrayList<>();
-        imageRefs.add(storage.getReference().child("https://firebasestorage.googleapis.com/v0/b/unipi---storyteller.appspot.com/o/pigeons-peristeria-1200x630-cartoon.jpg?alt=media&token=ea9845cd-12b4-4220-a5e1-ad50c89771ed"));
-        imageRefs.add(storage.getReference().child("images/image2.jpg"));
-        imageRefs.add(storage.getReference().child("images/image3.jpg"));
-        imageRefs.add(storage.getReference().child("images/image4.jpg"));
+        String imageUrl2 = "https://firebasestorage.googleapis.com/v0/b/unipi---storyteller.appspot.com/o/pentamorfi-kai-to-teras-1200x630.jpg?alt=media&token=cffdf26a-6842-4cc2-a48a-0d673fd7f0f6";
+        ImageButton imageButton2 = findViewById(R.id.imageButton2);
+        Glide.with(this/* context */)
+                .load(imageUrl2)
+                .into(imageButton2);
 
-        for (int i = 0; i < imageRefs.size(); i++) {
-            final int index = i;
-            imageRefs.get(i).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                @Override
-                public void onSuccess(byte[] bytes) {
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    switch (index) {
-                        case 0:
-                            imageButton.setImageBitmap(bitmap);
-                            break;
-                        case 1:
-                            imageButton2.setImageBitmap(bitmap);
-                            break;
-                        case 2:
-                            imageButton3.setImageBitmap(bitmap);
-                            break;
-                        case 3:
-                            imageButton4.setImageBitmap(bitmap);
-                            break;
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    // Handle any errors
-                }
-            });
+        String imageUrl3 = "https://firebasestorage.googleapis.com/v0/b/unipi---storyteller.appspot.com/o/snow-white-409163_1280.jpg?alt=media&token=00e61f67-c981-42a5-adb4-68ba1ae94793";
+        ImageButton imageButton3 = findViewById(R.id.imageButton3);
+        Glide.with(this/* context */)
+                .load(imageUrl3)
+                .into(imageButton3);
+
+        String imageUrl4 = "https://firebasestorage.googleapis.com/v0/b/unipi---storyteller.appspot.com/o/staxtopouta-paramythi-1050000_1280.jpg?alt=media&token=19ea8113-d2d7-4a12-af68-6954e1440575";
+        ImageButton imageButton4 = findViewById(R.id.imageButton4);
+        Glide.with(this/* context */)
+                .load(imageUrl4)
+                .into(imageButton4);
+
+        String imageUrl5 = "https://firebasestorage.googleapis.com/v0/b/unipi---storyteller.appspot.com/o/ta-tria-gourounakia..jpg?alt=media&token=85b6ba69-66ac-42f6-8e27-ab9deb876478";
+        ImageButton imageButton5 = findViewById(R.id.imageButton5);
+        Glide.with(this/* context */)
+                .load(imageUrl5)
+                .into(imageButton5);
+
+    }
+
+        public void readStory (View view){
+            Intent intentLoadNewActivity = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intentLoadNewActivity);
         }
 
     }
-}
-
-
-
-//        imageButton = findViewById(R.id.imageButton);
-//
-//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-//        DatabaseReference databaseReference = firebaseDatabase.getReference();
-//        DatabaseReference getImage = databaseReference.child("image");
-//        getImage.addListenerForSingleValueEvent(
-//                new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(
-//                            @NonNull DataSnapshot dataSnapshot)
-//                    {
-//                        String link = dataSnapshot.getValue(
-//                                String.class);
-//                        Picasso.get().load(link).into(imageButton);
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//
-//                });
-//
-//
-//        }
-//    public void readStory(View view){
-//        Intent intentLoadNewActivity = new Intent(MainActivity.this , MainActivity2.class);
-//        startActivity(intentLoadNewActivity);
-//    }
-//
-//}
